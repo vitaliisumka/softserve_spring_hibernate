@@ -15,8 +15,8 @@ public class Book {
     @ManyToMany
     Set<Author> booksAuthors;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private Set<BookCopies> comments = new HashSet<>();
+//    @OneToMany(cascade = CascadeType.ALL)
+//    private Set<BookCopies> comments = new HashSet<>();
 
     @ManyToMany
     Set<User> booksLoans;

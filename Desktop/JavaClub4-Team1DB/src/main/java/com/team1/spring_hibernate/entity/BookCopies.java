@@ -19,9 +19,9 @@ public class BookCopies {
 
 
 
-    @OneToMany
-    @JoinColumn(name="book_id")
-    private Set<BookCopies> bookCopies = new HashSet<BookCopies>();
+//    @OneToMany
+//    @JoinColumn(name="book_id")
+//    private Set<BookCopies> bookCopies = new HashSet<BookCopies>();
 
 
 //    public Book getBook() {
