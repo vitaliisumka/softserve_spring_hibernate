@@ -15,6 +15,9 @@ public class Book {
     @ManyToMany
     Set<Author> booksAuthors;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<BookCopies> comments = new HashSet<>();
+
     @ManyToMany
     Set<User> booksLoans;
 
@@ -94,7 +97,40 @@ public class Book {
         this.booksLoans = booksLoans;
     }
 
+    // ---------------------------Book copies-----------------------------------
+//    @OneToMany(mappedBy = "book")
+//    private Set<BookCopies> bookCopies = new HashSet<BookCopies>();
+//
+//    public Set<BookCopies> getBookCopies() {
+//        return bookCopies;
+//    }
+//
+//    public void setBookCopies(Set<BookCopies> bookCopies) {
+//        this.bookCopies = bookCopies;
+//    }
+//
+//    public void setBookCopy(Set<BookCopies> bookCopies) {
+//        this.bookCopies = bookCopies;
+//    }
+//
+//    public void addBookCopies(BookCopies bookCopies) {
+//        this.bookCopies.add(bookCopies);
+//    }
+//
+//    public void addCopies(BookCopies bookCopies) {
+//        this.bookCopies.add(bookCopies);
+//    }
+
+//    public Set<BookCopies> getBooksCopies() {
+//        return booksCopies;
+//    }
+//
+//    public void setBooksCopies(Set<BookCopies> booksCopies) {
+//        this.booksCopies = booksCopies;
+//    }
+
     // --------------------------------------------------------------
+
 
     public Book() {
     }
