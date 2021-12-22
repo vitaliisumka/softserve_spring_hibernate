@@ -11,15 +11,15 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 
-//@Repository
+@Repository
 public class BookCopiesDAOImpl implements BookCopiesDAO{
 
 
-    //@Autowired
+    @Autowired
     private SessionFactory sessionFactory;
 
-//    @Override
-//    @Transactional
+    @Override
+    @Transactional
     public List<BookCopies> getAllBookCopy() {
         Session session = sessionFactory.getCurrentSession();
         List<BookCopies> list = session.createQuery("from BookCopies", BookCopies.class).getResultList();

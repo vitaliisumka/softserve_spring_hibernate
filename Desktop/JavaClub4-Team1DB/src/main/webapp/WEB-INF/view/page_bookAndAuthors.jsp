@@ -26,6 +26,7 @@
     <th><pre> Author Surname  </pre></th>
     <th><pre> Author Age  </pre></th>
     <th><pre> Is Co Author  </pre></th>
+    <th><pre> Nationality  </pre></th>
     <th><pre> Book ID  </pre></th>
     <th><pre> Book Title  </pre></th>
     <th><pre> Book Rating  </pre></th>
@@ -41,6 +42,7 @@
       <td><pre>  ${booksAuthors.author.surname}  </pre></td>
       <td><pre>  ${booksAuthors.author.age}  </pre></td>
       <td><pre>  ${booksAuthors.is_coauthor}  </pre></td>
+      <td><pre>  ${booksAuthors.author.nationality.nationality}  </pre></td>
 
       <td><pre>  ${booksAuthors.book.id}  </pre></td>
       <td><pre>  ${booksAuthors.book.title}  </pre></td>

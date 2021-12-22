@@ -16,13 +16,15 @@ public class MyController {
     @Autowired
     private UserService userService;
     @Autowired
+    private AuthorService authorService;
+    @Autowired
     private BookService bookService;
     @Autowired
     private BookAuthorService bookAuthorService;
     @Autowired
     private BookLoanService bookLoanService;
-//    @Autowired
-//    private BookCopiesService bookCopiesService;
+    @Autowired
+    private BookCopiesService bookCopiesService;
 
     @RequestMapping("/users")
     public String showAllUsers(Model model){
@@ -30,6 +32,14 @@ public class MyController {
         model.addAttribute("modelAllUsers", allUsers);
         return "all_users";
     }
+
+    @RequestMapping("/authors")
+    public String showAllAuthors(Model model){
+        List<Author> allAuthors = authorService.getAllAuthor();
+        model.addAttribute("modelAllAuthors", allAuthors);
+        return "all_authors";
+    }
+
 
     @RequestMapping("/books")
     public String showAllBooks(Model model){
@@ -53,12 +63,12 @@ public class MyController {
     }
 
 
-//    @RequestMapping("/booksAndCopies")
-//    public String showBooksAndCopies(Model model){
-//        List<BookCopies> allBookAndCopies = bookCopiesService.getAllBookCopy();
-//        model.addAttribute("bookAndCopies", allBookAndCopies);
-//        return "page_bookAndCopies";
-//    }
+    @RequestMapping("/booksAndCopies")
+    public String showBooksAndCopies(Model model){
+        List<BookCopies> allBookAndCopies = bookCopiesService.getAllBookCopy();
+        model.addAttribute("bookAndCopies", allBookAndCopies);
+        return "page_bookAndCopies";
+    }
 
 
 

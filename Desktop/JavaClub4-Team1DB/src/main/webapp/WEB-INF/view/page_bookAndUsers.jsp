@@ -22,7 +22,7 @@
         <th><pre> User Name   </pre></th>
         <th><pre> User Surname  </pre></th>
         <th><pre> User Age  </pre></th>
-        <th><pre> User Role ID  </pre></th>
+        <th><pre> User Role  </pre></th>
         <th><pre> Book ID  </pre></th>
         <th><pre> Book Title  </pre></th>
         <th><pre> Book Rating  </pre></th>
@@ -37,7 +37,8 @@
             <td><pre>  ${booksLoans.user.name}  </pre></td>
             <td><pre>  ${booksLoans.user.surname}  </pre></td>
             <td><pre>  ${booksLoans.user.age}  </pre></td>
-            <td><pre>  ${booksLoans.user.roleId}  </pre></td>
+            <td><pre>  ${booksLoans.user.role.name}  </pre></td>
+
 
             <td><pre>  ${booksLoans.book.id}  </pre></td>
             <td><pre>  ${booksLoans.book.title}  </pre></td>

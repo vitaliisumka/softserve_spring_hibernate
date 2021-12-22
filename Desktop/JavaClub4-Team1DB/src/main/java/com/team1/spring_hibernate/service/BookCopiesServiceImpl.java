@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-//@Service
+@Service
 public class BookCopiesServiceImpl implements BookCopiesService{
 
-    //@Autowired
+    @Autowired
     BookCopiesDAO bookCopiesDAO;
 
-    //@Override
+    @Override
     public List<BookCopies> getAllBookCopy() {
         return bookCopiesDAO.getAllBookCopy();
     }

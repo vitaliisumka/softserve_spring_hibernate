@@ -10,6 +10,7 @@ import java.util.Set;
 @Table(name = "user")
 public class User {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -23,10 +24,14 @@ public class User {
     @Column(name = "age")
     private int age;
 
-    @Column(name = "role_id")
-    private int roleId;
+    @ManyToOne
+    private Role role;
 
     // --------------------------------------------------------------
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "role_id")
+    private Set<Role> roles = new HashSet<Role>();
 
     @OneToMany(mappedBy = "user")
     private Set<BookLoan> bookLoans = new HashSet<BookLoan>();
@@ -59,12 +64,11 @@ public class User {
     public User() {
     }
 
-    public User(int id, String name, String surname, int age, int role_id) {
+    public User(int id, String name, String surname, int age) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.age = age;
-        this.roleId = role_id;
     }
 
     public int getId() {
@@ -99,11 +103,19 @@ public class User {
         this.age = age;
     }
 
-    public int getRoleId() {
-        return roleId;
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

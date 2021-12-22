@@ -4,44 +4,49 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-//@Entity
-//@Table (name = "book_copies")
+@Entity
+@Table (name = "book_copies")
 public class BookCopies {
 
-    //many to one
+    @ManyToOne
     private Book book;
 
 
-
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
 
 
-//    @OneToMany
-//    @JoinColumn(name="book_id")
-//    private Set<BookCopies> bookCopies = new HashSet<BookCopies>();
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "book_copy_id")
+    private Set<Book> bookCopies = new HashSet<Book>();
 
 
-//    public Book getBook() {
-//        return book;
-//    }
-//
-//    public void setBook(Book book) {
-//        this.book = book;
-//    }
-
-
-
-    //@Column(name = "is_available")
-    private int is_available;
-
-    public BookCopies() {
-
+    public Set<Book> getBookCopies() {
+        return bookCopies;
     }
 
-    public BookCopies(int id, int is_available) {
+    public void setBookCopies(Set<Book> bookCopies) {
+        this.bookCopies = bookCopies;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+
+    @Column(name = "is_available")
+    private boolean is_available;
+
+    public BookCopies() {
+    }
+
+    public BookCopies(int id, boolean is_available) {
         this.id = id;
         this.is_available = is_available;
     }
@@ -54,13 +59,11 @@ public class BookCopies {
         this.id = id;
     }
 
-    public int getIs_available() {
+    public boolean getIs_available() {
         return is_available;
     }
 
-    public void setIs_available(int is_available) {
+    public void setIs_available(boolean is_available) {
         this.is_available = is_available;
     }
 }
-
-

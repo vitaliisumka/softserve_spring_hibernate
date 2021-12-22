@@ -20,20 +20,24 @@ public class Author {
     @Column(name = "last_name")
     private String surname;
 
-    @Column(name = "nationality_id")
-    private int nationality_id;
 
     @Column(name = "age")
     private int age;
 
+    @ManyToOne
+    private Nationality nationality;
 
     // --------------------------------------------------------------
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "nationality_id")
+    private Set<Nationality> nationalities = new HashSet<Nationality>();
+
 
     @OneToMany(mappedBy = "author")
     private Set<BookAuthor> bookAuthors = new HashSet<BookAuthor>();
 
 
-    @OneToMany(mappedBy = "author")  // тут було закоментовано, розкоментував!!!
+    @OneToMany(mappedBy = "author")
     public Set<BookAuthor> getBookAuthors() {
         return bookAuthors;
     }
@@ -42,9 +46,6 @@ public class Author {
         this.bookAuthors = bookAuthors;
     }
 
-//    public void setBookAuthor(Set<BookAuthor> bookAuthor) {
-//        this.bookAuthors = bookAuthors;
-//    }
 
     public void addBookAuthor(BookAuthor bookAuthor) {
         this.bookAuthors.add(bookAuthor);
@@ -57,23 +58,13 @@ public class Author {
     // --------------------------------------------------------------
 
 
-
-//    @ManyToMany
-//    @JoinTable(
-//            name = "book_author",
-//            joinColumns = @JoinColumn(name = "book_id"),
-//            inverseJoinColumns = @JoinColumn(name = "author_id"))
-//    Set<Book> writtenBooks;
-
-
     public Author() {
     }
 
-    public Author(int id, String name, String surname, int nationality_id, int age) {
+    public Author(int id, String name, String surname,  int age) {
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.nationality_id = nationality_id;
         this.age = age;
     }
 
@@ -101,14 +92,6 @@ public class Author {
         this.surname = surname;
     }
 
-    public int getNationality_id() {
-        return nationality_id;
-    }
-
-    public void setNationality_id(int nationality_id) {
-        this.nationality_id = nationality_id;
-    }
-
     public int getAge() {
         return age;
     }
@@ -117,16 +100,19 @@ public class Author {
         this.age = age;
     }
 
+    public Nationality getNationality() {
+        return nationality;
+    }
 
+    public void setNationality(Nationality nationality) {
+        this.nationality = nationality;
+    }
 
+    public Set<Nationality> getNationalities() {
+        return nationalities;
+    }
 
-
-
-
-
-
-
-
-
-
+    public void setNationalities(Set<Nationality> nationalities) {
+        this.nationalities = nationalities;
+    }
 }

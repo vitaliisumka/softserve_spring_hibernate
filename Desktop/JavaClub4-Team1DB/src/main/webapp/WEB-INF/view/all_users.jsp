@@ -23,7 +23,7 @@
         <th><pre> Id  </pre></th>
         <th><pre> Name  </pre></th>
         <th><pre> Surname  </pre></th>
-        <th><pre> Role id  </pre></th>
+        <th><pre> Role   </pre></th>
         <th><pre> Age  </pre></th>
 
     </tr>
@@ -34,7 +34,7 @@
         <td><pre>  ${users.id}  </pre></td>
         <td><pre>  ${users.name}  </pre></td>
         <td><pre>  ${users.surname}  </pre></td>
-        <td><pre>  ${users.roleId}  </pre></td>
+        <td><pre>  ${users.role.name}  </pre></td>
         <td><pre>  ${users.age}  </pre></td>
     </tr>
 
